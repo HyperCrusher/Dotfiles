@@ -1,0 +1,76 @@
+$background: #11121D;
+$foreground: #A0A8CD;
+$selected: #A0A8CD;
+$accent: #A485DD;
+$red: #EE6D85;
+$blue: #7199EE;
+
+*{
+  color: $foreground;
+}
+.bar{
+  background: $background;
+}
+
+.workspace-button{
+  &.occupied{
+    font-size: 18px;
+    label{
+      color: $foreground;
+    }
+  }
+  &.active{
+    label{
+      font-weight: bold;
+      font-size: 20px;
+      color: $accent;
+    }
+  }
+  background: transparent;
+  &:hover{
+    background: lighten($background, 10%);
+    border-radius: 5px;
+  }
+  label{
+    color: mix($background, $foreground, 35%);
+  }
+}
+.workspace-container{
+  margin: 5px 5px;
+}
+
+.systray-button{
+  background: transparent;
+  &:hover{
+    background: lighten($background, 25%);
+  }
+}
+
+.systray-container{
+  background: lighten($background, 15%);
+  margin: 5px 5px;
+  font-size: 22px;
+  border-radius: 8px;
+}
+
+.favs-container{
+  margin: 5px 5px;
+  font-size: 20px;
+  .favs-button{
+    padding: 5px 18px 5px 8px;
+  }
+  .favs-button:nth-child(2){
+    padding: 5px 14px 5px 8px;
+  }
+  .favs-button:nth-child(3){
+    padding: 5px 14px 5px 8px;
+  }
+  .favs-button:nth-child(4){
+    padding: 5px 14px 5px 8px;
+  }
+}
+
+
+
+
+
