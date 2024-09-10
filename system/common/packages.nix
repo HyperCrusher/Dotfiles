@@ -38,20 +38,8 @@
       plugins = with pkgs.tmuxPlugins; [
         vim-tmux-navigator
         resurrect
-        {
-          plugin = continuum;
-          extraConfig = ''
-            set -g @continuum-restore 'on'
-            set -g @continuum-save-interval '10'
-          '';
-        }
-        {
-          plugin = prefix-highlight;
-          extraConfig = ''
-            set -g @prefix_highlight_show_copy_mode 'on'
-            set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
-          '';
-        }
+        continuum
+        prefix-highlight
       ];
 
       extraConfig = ''
@@ -59,6 +47,10 @@
 
         set -g @resurrect-capture-pane-contents 'on'
         set -g @resurrect-strategy-nvim 'session'
+        set -g @continuum-restore 'on'
+        set -g @continuum-save-interval '10'
+        set -g @prefix_highlight_show_copy_mode 'on'
+        set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
 
         # My custom split preferences
         bind -n C-v split-window -h
