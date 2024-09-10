@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ../packages/wms/bspwm.nix
     ../packages/office.nix
     ../packages/dev/core.nix
     ../packages/media/thumbails.nix

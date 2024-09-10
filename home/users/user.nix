@@ -2,6 +2,7 @@
 {
   # I want everything to be 'opt-in' and so I dont want too many default.nix's
   imports = [
+    ../packages/wms/bspwm.nix
     ../packages/crypto.nix
     ../packages/gaming.nix
     ../packages/office.nix
@@ -10,6 +11,7 @@
     ../packages/media/default.nix
     ../packages/social/default.nix
     ../packages/system/default.nix
+    ../packages/torrent.nix
   ];
 
   home = {
