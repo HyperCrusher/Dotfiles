@@ -5,7 +5,7 @@
     ../packages/dev/core.nix
     ../packages/media/thumbails.nix
     ../packages/system/browsers.nix
-    ../packages/system/managment.nix.nix
+    ../packages/system/utils.nix
   ];
 
   home = {

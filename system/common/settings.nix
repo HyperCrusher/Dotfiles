@@ -34,7 +34,7 @@
 
   console = {
     earlySetup = true;
-    keymap = "us";
+    keyMap = "us";
     font = "Lat2-Terminus16";
     colors = [
       "16161e"

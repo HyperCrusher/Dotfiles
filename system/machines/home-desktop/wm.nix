@@ -23,7 +23,7 @@
     fade = false;
     shadow = false;
     backend = "glx";
-    vsync = true;
+    vSync = true;
 
     inactiveOpacity = 0.8;
     activeOpacity = 1.0;
