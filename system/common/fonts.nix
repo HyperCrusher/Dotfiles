@@ -39,6 +39,6 @@
     vistafonts
     texlivePackages.opensans
 
-    inputs.wpsFonts.defaultPackage.${system}
+    inputs.wpsFonts.packages.${system}.default
   ];
 }
