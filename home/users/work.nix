@@ -19,9 +19,9 @@
       ".config/gtk-4.0".source = ../../dotfiles/gtk/.config/gtk-4.0;
       ".config/qt5ct".source = ../../dotfiles/gtk/.config/qt5ct;
       ".config/qt6ct".source = ../../dotfiles/gtk/.config/qt6ct;
+      # Wallpapers
+      "Pictures/Wallpapers".source = ../../dotfiles/wallpapers/Pictures/Wallpapers;
     };
-    # Wallpapers
-    "Pictures/Wallpapers".source = ../../dotfiles/wallpapers/Pictures/Wallpapers;
   };
 
   programs = {
