@@ -29,7 +29,7 @@
       placement_strategy = "center";
       sync_to_monitor = "yes";
       enable_audio_bell = "no";
-      visual_bell_duration = 0.0;
+      visual_bell_duration = "0.0";
       url_style = "straight";
 
       background_opacity = "0.85";
