@@ -10,7 +10,7 @@
     keybindings = {
       # Launch Applications
       "super + return" = "kitty";
-      "super + space" = "rofi -show run";
+      "super + @space" = "rofi -show run";
       "Print" = "flameshot gui -c -s";
       # Restart SXHKD
       "super + Escape" = "pkill -USR1 -x sxhkd";
@@ -56,6 +56,7 @@
       startupPrograms = [
         "dunst"
         "flameshot"
+        "sxhkd"
       ];
       rules = {
         "pavucontrol" = {
