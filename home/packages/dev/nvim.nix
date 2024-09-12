@@ -33,8 +33,4 @@
     };
   };
 
-  xdg.configFile.nvim = {
-    source = ../../../dotfiles/nvim/.config/nvim;
-    recursive = true;
-  };
 }
