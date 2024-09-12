@@ -5,7 +5,7 @@
     # dotfiles
     ../packages/dotfiles.nix
     # WM
-    ../packages/wms/picom.nix
+    #../packages/wms/picom.nix
     ../packages/wms/bspwm.nix
     # Applications
     ../packages/crypto.nix
