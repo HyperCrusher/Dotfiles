@@ -18,6 +18,7 @@
     gnumake
     rustc
     cargo
+    lua
   ];
   programs = {
     neovim = {
