@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 {
@@ -33,7 +32,7 @@
   };
 
   xdg.configFile.nvim = {
-    source = "${inputs.dotfiles}/nvim/.config/nvim";
+    source = ../../../../dotfiles/nvim;
     recursive = true;
   };
 }
