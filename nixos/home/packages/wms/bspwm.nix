@@ -80,7 +80,7 @@
         # Wallpapers
          for index in "''${!displays[@]}"
          do
-             nitrogen --set-zoom-fill --random --head=$index $HOME/Pictures/Wallpapers
+             nitrogen --set-zoom-fill --random --head=$index $HOME/Pictures/wallpapers
          done
       '';
       settings = {
