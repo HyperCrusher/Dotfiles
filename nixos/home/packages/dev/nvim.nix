@@ -13,7 +13,9 @@
     yq
     nodePackages.jsonlint
     fixjson
-    gcc # gcc so nvim can build plugins
+    gcc # Deps so that nvim can build plugins
+    tree-sitter
+    gnumake
   ];
   programs = {
     neovim = {
