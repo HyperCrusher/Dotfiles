@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    dotfiles = {
+      url = "github:hypercrusher/dotfiles";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";

@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   # Shell, nix, lua, yaml and json tools should always be present
   home.packages = with pkgs; [
@@ -34,7 +39,7 @@
   };
 
   xdg.configFile.nvim = {
-    source = ../../../dotfiles/nvim/.config/nvim;
+    source = "${inputs.dotfiles}/nvim/.config/nvim";
     recursive = true;
   };
 }
