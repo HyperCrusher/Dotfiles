@@ -1,25 +1,42 @@
-{ pkgs, ... }:
+{ config, ... }:
+let
+  zshDir = ".config/zsh";
+in
 {
   programs.zsh = {
     enable = true;
     autocd = false;
 
-    dotDir = ".config/zsh";
+    dotDir = zshDir;
 
     history = {
       size = 10000;
     };
     zplug = {
       enable = true;
-      zplugHome = "$ZDOTDIR/.zsh_history";
+      zplugHome = builtins.toPath "${config.home.homeDirectory}/${zshDir}/zplug";
       plugins = [
-        "zsh-users/zsh-autosuggestions"
-        "zsh-users/zsh-syntax-highlighting"
-        "zsh-users/zsh-completions"
-        "zsh-users/zsh-history-substring-search"
-        "ChrisPenner/copy-pasta"
-        "mdumitru/fancy-ctrl-z"
-        "jeffreytse/zsh-vi-mode"
+        {
+          name = "zsh-users/zsh-autosuggestions";
+        }
+        {
+          name = "zsh-users/zsh-syntax-highlighting";
+        }
+        {
+          name = "zsh-users/zsh-completions";
+        }
+        {
+          name = "zsh-users/zsh-history-substring-search";
+        }
+        {
+          name = "ChrisPenner/copy-pasta";
+        }
+        {
+          name = "mdumitru/fancy-ctrl-z";
+        }
+        {
+          name = "jeffreytse/zsh-vi-mode";
+        }
       ];
     };
 
