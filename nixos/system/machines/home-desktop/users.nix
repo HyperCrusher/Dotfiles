@@ -1,7 +1,7 @@
 { user, pkgs, ... }:
 {
   users = {
-    defaultShell = pkgs.zsh;
+    defaultUserShell = pkgs.zsh;
     users = {
       ${user.name_lower} = {
         isNormalUser = true;
