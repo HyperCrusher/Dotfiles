@@ -16,6 +16,8 @@
     gcc # Deps so that nvim can build plugins
     tree-sitter
     gnumake
+    rustc
+    cargo
   ];
   programs = {
     neovim = {
