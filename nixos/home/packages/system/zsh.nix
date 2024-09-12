@@ -11,7 +11,9 @@ in
 
     history = {
       size = 10000;
+      path = "${zshDir}/history";
     };
+
     zplug = {
       enable = true;
       zplugHome = builtins.toPath "${config.home.homeDirectory}/${zshDir}/zplug";
