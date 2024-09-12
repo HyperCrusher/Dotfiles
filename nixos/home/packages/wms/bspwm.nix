@@ -2,14 +2,13 @@
 {
   home.packages = with pkgs; [
     nitrogen
-    rofi
   ];
 
   services.sxhkd = {
     enable = true;
     keybindings = {
       # Launch Applications
-      "super + return" = "rofi -show run";
+      "super + return" = "alacritty";
       # "super + @space" = "rofi -show run";
       "Print" = "flameshot gui -c -s";
       # Restart SXHKD
@@ -56,7 +55,6 @@
       startupPrograms = [
         "dunst"
         "flameshot"
-        "sxhkd"
       ];
       rules = {
         "pavucontrol" = {
