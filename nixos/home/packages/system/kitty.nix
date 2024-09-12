@@ -32,7 +32,7 @@
       visual_bell_duration = 0.0;
       url_style = "straight";
 
-      background_opacity = 0.85;
+      background_opacity = "0.85";
 
       # Theme
       foreground = "#A0A8CD";
