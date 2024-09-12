@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 
 let
   dotfiles = builtins.toString ../../../dotfiles;
@@ -6,33 +6,39 @@ in
 {
   xdg.configFile = {
     "gtk-3.0" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/gtk-3.0";
+      source = "${dotfiles}/gtk/gtk-3.0";
+      recursive = true;
       force = true;
     };
     "gtk-4.0" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/gtk-4.0";
+      source = "${dotfiles}/gtk/gtk-4.0";
+      recursive = true;
       force = true;
     };
     "qt5ct" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/qt5ct";
+      source = "${dotfiles}/gtk/qt5ct";
+      recursive = true;
       force = true;
     };
     "qt6ct" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/qt6ct";
+      source = "${dotfiles}/gtk/qt6ct";
+      recursive = true;
       force = true;
     };
     "rofi" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/rofi";
+      source = "${dotfiles}/rofi";
       force = true;
     };
   };
   home.file = {
     ".themes" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/themes";
+      source = "${dotfiles}/gtk/themes";
+      recursive = true;
       force = true;
     };
     ".icons" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/icons";
+      source = "${dotfiles}/gtk/icons";
+      recursive = true;
       force = true;
     };
     "Pictures/wallpapers" = {
