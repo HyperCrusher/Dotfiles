@@ -1,10 +1,10 @@
 { user, pkgs, ... }:
 {
   users = {
-    defaultUserShell = pkgs.zsh;
     users = {
       ${user.name_lower} = {
         isNormalUser = true;
+        shell = pkgs.zsh;
         home = "/home/${user.name_lower}";
         description = "${user.name}";
         initialPassword = "changeme";
@@ -24,6 +24,7 @@
       };
       work = {
         isNormalUser = true;
+        shell = pkgs.zsh;
         home = "/home/work";
         description = "Work";
         initialPassword = "changeme";
