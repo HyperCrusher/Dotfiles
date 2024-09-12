@@ -13,6 +13,11 @@
       gtk-engine-murrine
       papirus-icon-theme
       libsForQt5.qt5ct
+      kdePackages.qt6ct
+      kdePackages.breeze-icons
+      gnome-themes-extra
+      qogir-theme
+      qogir-icon-theme
     ];
 
     etc = {
@@ -35,11 +40,15 @@
   home-manager.users.root =
     { ... }:
     {
-      home.file = {
-        ".config/gtk-3.0".source = ../../dotfiles/gtk/.config/gtk-3.0;
-        ".config/gtk-4.0".source = ../../dotfiles/gtk/.config/gtk-4.0;
-        ".config/qt5ct".source = ../../dotfiles/gtk/.config/qt5ct;
-        ".config/qt6ct".source = ../../dotfiles/gtk/.config/qt6ct;
+      home = {
+        homeDirectory = "/root";
+        stateVersion = "23.11";
+        file = {
+          ".config/gtk-3.0".source = ../../dotfiles/gtk/.config/gtk-3.0;
+          ".config/gtk-4.0".source = ../../dotfiles/gtk/.config/gtk-4.0;
+          ".config/qt5ct".source = ../../dotfiles/gtk/.config/qt5ct;
+          ".config/qt6ct".source = ../../dotfiles/gtk/.config/qt6ct;
+        };
       };
     };
 }
