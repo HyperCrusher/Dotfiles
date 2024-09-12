@@ -10,9 +10,10 @@
     ../packages/office.nix
     ../packages/dev/core.nix
     ../packages/media/thumbails.nix
-    ../packages/system/tmux.nix
     ../packages/system/browsers.nix
+    ../packages/system/tmux.nix
     ../packages/system/utils.nix
+    ../packages/system/zsh.nix
   ];
 
   home = {

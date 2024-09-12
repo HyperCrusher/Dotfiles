@@ -6,5 +6,6 @@
     ./kitty.nix
     ./tmux.nix
     ./utils.nix
+    ./zsh.nix
   ];
 }
