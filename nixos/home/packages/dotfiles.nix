@@ -25,6 +25,11 @@ in
       recursive = true;
       force = true;
     };
+    "rofi" = {
+      source = "${dotfiles}/rofi";
+      recursive = true;
+      force = true;
+    };
   };
   home.file = {
     ".themes" = {
