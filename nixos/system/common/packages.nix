@@ -64,7 +64,6 @@
     ripgrep
     rsync
     smartmontools
-    snapper
     tldr
     tree
     unrar
