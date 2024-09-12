@@ -1,9 +1,10 @@
 { ... }:
 {
   imports = [
-    ./tmux.nix
     ./android.nix
     ./browsers.nix
+    ./kitty.nix
+    ./tmux.nix
     ./utils.nix
   ];
 }
