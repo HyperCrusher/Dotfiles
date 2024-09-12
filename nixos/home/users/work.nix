@@ -1,22 +1,21 @@
-{ user, inputs, ... }:
+{ inputs, ... }:
 {
-  # I want everything to be 'opt-in' and so I dont want too many default.nix's
   imports = [
+    # WM
+    ../packages/wms/picom.nix
     ../packages/wms/bspwm.nix
-    ../packages/crypto.nix
-    ../packages/gaming.nix
+    # Applications
     ../packages/office.nix
     ../packages/dev/core.nix
-    ../packages/dev/gamedev.nix
-    ../packages/media/default.nix
-    ../packages/social/default.nix
-    ../packages/system/default.nix
-    ../packages/torrent.nix
+    ../packages/media/thumbails.nix
+    ../packages/system/tmux.nix
+    ../packages/system/browsers.nix
+    ../packages/system/utils.nix
   ];
 
   home = {
-    username = "${user.name_lower}";
-    homeDirectory = "/home/${user.name_lower}";
+    username = "work";
+    homeDirectory = "/home/work";
     stateVersion = "23.11";
     # Theme
     file = {
@@ -26,13 +25,6 @@
       ".config/qt6ct".source = "${inputs.dotfiles}/gtk/.config/qt6ct";
       # Wallpapers
       "Pictures/Wallpapers".source = "${inputs.dotfiles}/wallpapers/Pictures/Wallpapers";
-    };
-  };
-
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
     };
   };
 

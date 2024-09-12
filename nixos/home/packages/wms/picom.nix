@@ -1,27 +1,7 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    flameshot
-    rofi
-    xclip
-    dunst
-  ];
-  services.xserver = {
-    enable = true;
-    windowManager = {
-      bspwm = {
-        enable = true;
-        sxhkd.package = pkgs.sxhkd;
-      };
-    };
-  };
-
-  services.displayManager.ly.enable = true;
-
   services.picom = {
     enable = true;
-    fade = false;
-    shadow = false;
     backend = "glx";
     vSync = true;
 

@@ -23,6 +23,7 @@
       XCURSOR_SIZE = "24";
     };
   };
+
   boot = {
     tmp.cleanOnBoot = true;
     supportedFilesystems = [
