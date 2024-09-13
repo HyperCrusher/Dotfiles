@@ -16,6 +16,7 @@
     };
     overlays = [
       inputs.neovim-nightly-overlay.overlays.default
+      (import ../overlays/omp.nix)
     ];
   };
 

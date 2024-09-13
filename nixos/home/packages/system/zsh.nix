@@ -1,8 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
 let
   zshDir = ".config/zsh";
 in
 {
+  programs.oh-my-posh = {
+    enable = true;
+    package = pkgs.oh-my-posh;
+  };
+
   programs.zsh = {
     enable = true;
     autocd = false;
@@ -30,9 +35,7 @@ in
     initExtra = ''
       typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6" 
       typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
-
-      PROMPT='%F{blue}%2~ %F{green}> '
-      RPROMPT="%F{#acb0d0}%t"
+      eval "$(oh-my-posh init zsh -c '${zshDir}/omp.json')"
     '';
 
     shellAliases = {
@@ -56,6 +59,47 @@ in
 
       # lsblk but with sensible outputs
       "lsblk" = "lsblk --output name,label,size,rota,mountpoints,fstype";
+    };
+  };
+  home.file."${zshDir}/omp.json".text = builtins.toJSON {
+    "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
+    final_space = true;
+    version = 2;
+    blocks = [
+      {
+        type = "prompt";
+        alignment = "left";
+        newline = true;
+        segments = [
+          {
+            type = "path";
+            style = "plain";
+            foreground = "blue";
+            background = "transparent";
+            template = "{{ if eq .PWD \"~\" }}~{{ else }}{{ base .Parent }}/{{ .Folder }}{{ end }}";
+          }
+        ];
+      }
+      {
+        type = "prompt";
+        alignment = "left";
+        newline = true;
+        segments = [
+          {
+            type = "text";
+            style = "plain";
+            background = "transparent";
+            foreground = "magenta";
+            template = " ";
+          }
+
+        ];
+      }
+    ];
+    transient_prompt = {
+      foreground = "magenta";
+      background = "transparent";
+      template = " ";
     };
   };
 }
