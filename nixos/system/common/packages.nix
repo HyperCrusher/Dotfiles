@@ -27,7 +27,10 @@
       ];
     };
     udevil.enable = true;
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      enableCompletion = false;
+    };
   };
 
   services = {
