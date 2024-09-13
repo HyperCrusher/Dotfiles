@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 let
   zshDir = ".config/zsh";
 in
@@ -14,31 +14,16 @@ in
       path = "${zshDir}/history";
     };
 
-    zplug = {
+    antidote = {
       enable = true;
-      zplugHome = builtins.toPath "${config.home.homeDirectory}/${zshDir}/zplug";
       plugins = [
-        {
-          name = "zsh-users/zsh-autosuggestions";
-        }
-        {
-          name = "zsh-users/zsh-syntax-highlighting";
-        }
-        {
-          name = "zsh-users/zsh-completions";
-        }
-        {
-          name = "zsh-users/zsh-history-substring-search";
-        }
-        {
-          name = "ChrisPenner/copy-pasta";
-        }
-        {
-          name = "mdumitru/fancy-ctrl-z";
-        }
-        {
-          name = "jeffreytse/zsh-vi-mode";
-        }
+        "zsh-users/zsh-autosuggestions kind:defer"
+        "zsh-users/zsh-syntax-highlighting kind:defer"
+        "clarketm/zsh-completions kind:defer"
+        "zsh-users/zsh-history-substring-search kind:defer"
+        "ChrisPenner/copy-pasta kind:defer"
+        "mdumitru/fancy-ctrl-z kind:defer"
+        "jeffreytse/zsh-vi-mode kind:defer"
       ];
     };
 
