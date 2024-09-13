@@ -38,22 +38,22 @@ opt.relativenumber = true
 opt.showmode = false
 opt.syntax = "ON"
 opt.scrolloff = 8
-opt.conceallevel = 2
+opt.conceallevel = 0
 opt.concealcursor = "n"
 opt.foldcolumn = "0"
 opt.fillchars = {
-  eob = " ",
-  horiz = "━",
-  horizup = "┻",
-  horizdown = "┳",
-  vert = "┃",
-  vertleft = "┫",
-  vertright = "┣",
-  verthoriz = "╋",
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = "┃",
+    eob = " ",
+    horiz = "━",
+    horizup = "┻",
+    horizdown = "┳",
+    vert = "┃",
+    vertleft = "┫",
+    vertright = "┣",
+    verthoriz = "╋",
+    foldopen = "",
+    foldclose = "",
+    fold = " ",
+    foldsep = "┃"
 }
 
 -- Splitting Settings
