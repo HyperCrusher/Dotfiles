@@ -66,7 +66,7 @@ in
 
       # Nix related things
       "dotfiles" = "cd /etc/nixos";
-      "nix-update" = "git pull && sudo nix-rebuild switch --flake .#home-desktop";
+      "rebuild" = "sudo nixos-rebuild switch --flake /etc/nixos#home-desktop";
 
       # lsblk but with sensible outputs
       "lsblk" = "lsblk --output name,label,size,rota,mountpoints,fstype";
