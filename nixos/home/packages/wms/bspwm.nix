@@ -9,7 +9,7 @@
     keybindings = {
       # Launch Applications
       "super + Return" = "alacritty";
-      # "super + @space" = "rofi -show run";
+      "super + @space" = "rofi -show drun";
       "Print" = "flameshot gui -c -s";
       # Restart SXHKD
       "super + Escape" = "pkill -USR1 -x sxhkd";
@@ -40,16 +40,6 @@
 
   xsession = {
     numlock.enable = true;
-    # Theme
-    profileExtra = ''
-      gsettings set org.gnome.desktop.interface cursor-theme 'Qogir Cursors'
-      gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Dark-BL'
-      gsettings set org.gnome.desktop.interface icon-theme 'Tokyonight'
-      gsettings set org.gnome.desktop.interface font-name "Source Sans Pro 12"
-      gsettings set org.gnome.desktop.interface document-font-name "Source Sans Pro 12"
-      gsettings set org.gnome.desktop.interface monospace-font-name "JetBrainsMono Nerd Font Regular 10"
-      gsettings set org.gnome.desktop.interface font-antialiasing "rgba"
-    '';
     windowManager.bspwm = {
       enable = true;
       startupPrograms = [
