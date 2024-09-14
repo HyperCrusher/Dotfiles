@@ -4,7 +4,6 @@
     ${pkgs.xorg.xsetroot}/bin/xsetroot --cursor_name left_ptr
   '';
   environment = {
-    localBinInPath = true;
     variables = {
       QT_QPA_PLATFORMTHEME = "qt6ct";
       GTK_THEME = "Tokyonight-Dark-BL";
@@ -32,10 +31,18 @@
         gtk-icon-theme-name=Tokyonight
         gtk-font-name=Source Sans Pro 12
         gtk-cursor-theme-name=Qogir Cursors
+        gtk-cursor-theme-size=0
+        gtk-toolbar-style=GTK_TOOLBAR_BOTH
+        gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+        gtk-button-images=1
+        gtk-menu-images=1
         gtk-xft-antialias=1
         gtk-xft-hinting=1
-        gtk-xft-hintstyle=hintslight
+        gtk-xft-hintstyle=hintfull
         gtk-xft-rgba=rgb
+        gtk-application-prefer-dark-theme=1
+        gtk-enable-animations=true
+        gtk-primary-button-warps-slider=false
       '';
     };
   };
