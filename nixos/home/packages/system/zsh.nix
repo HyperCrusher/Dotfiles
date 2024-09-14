@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   zshDir = ".config/zsh";
+  zshAbsDir = "${config.home.homeDirectory}/${zshDir}";
 in
 {
   programs.oh-my-posh = {
@@ -16,7 +17,7 @@ in
 
     history = {
       size = 10000;
-      path = "${zshDir}/history";
+      path = "${zshAbsDir}/history";
     };
 
     antidote = {
@@ -35,7 +36,7 @@ in
     initExtra = ''
       typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6" 
       typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
-      eval "$(oh-my-posh init zsh -c '${zshDir}/omp.json')"
+      eval "$(oh-my-posh init zsh -c '${zshAbsDir}/omp.json')"
 
       export OMP_I=0
       precmd(){
