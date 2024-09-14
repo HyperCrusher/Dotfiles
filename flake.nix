@@ -10,6 +10,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
     wpsFonts.url = "github:hypercrusher/wpsfonts";
+    gtk-themes.url = "github:hypercrusher/gtk-themes";
   };
 
   outputs =

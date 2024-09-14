@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 {
   environment = {
     variables = {
@@ -7,7 +12,13 @@
       XCURSOR_THEME = "Qogir Cursors";
     };
 
+    pathsToLink = [
+      "/share/themes"
+      "/share/icons"
+    ];
+
     systemPackages = with pkgs; [
+      inputs.gtk-themes.packages.${system}.default
       gtk-engine-murrine
       papirus-icon-theme
       libsForQt5.qt5ct
