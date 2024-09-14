@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  machine,
+  ...
+}:
 let
   zshDir = ".config/zsh";
   zshAbsDir = "${config.home.homeDirectory}/${zshDir}";
@@ -66,8 +71,11 @@ in
       "." = "cd ~";
 
       # Nix related things
-      "dotfiles" = "cd /etc/nixos";
-      "rebuild" = "sudo nixos-rebuild switch --flake /etc/nixos#home-desktop";
+      "nixos" = "cd /etc/nixos";
+      "dotfiles" = "cd /etc/nixos/dotfiles";
+      "rebuild" = "sudo nixos-rebuild switch --flake /etc/nixos#${machine}";
+      "update" = "sudo nix flake update /etc/nixos && rebuild";
+      "rollback" = "sudo nixos-rebuild --switch --rollback";
 
       # lsblk but with sensible outputs
       "lsblk" = "lsblk --output name,label,size,rota,mountpoints,fstype";
