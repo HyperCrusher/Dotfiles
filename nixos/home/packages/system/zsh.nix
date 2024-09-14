@@ -91,7 +91,7 @@ in
             style = "plain";
             foreground = "blue";
             background = "transparent";
-            template = "{{ if eq .PWD \"~\" }}~{{ else }}{{ base .Parent }}/{{ .Folder }}{{ end }}";
+            template = ''{{ if eq .PWD "/" }}/{{ else }}{{ if eq .PWD "~" }}~{{ else }}{{ if eq .Parent "/" }}/{{ .Folder }}{{ else }}{{base .Parent }}/{{ .Folder }}{{ end }}{{ end }}{{ end }}'';
           }
         ];
       }
