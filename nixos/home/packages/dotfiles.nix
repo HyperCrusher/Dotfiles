@@ -5,8 +5,19 @@ let
 in
 {
   xdg.configFile = {
-    "gtk-3.0" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/gtk-3.0";
+    "gtk-3.0/colors.css" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/gtk-3.0/colors.css";
+    };
+    "gtk-3.0/gtk.css" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/gtk-3.0/gtk.css";
+    };
+    "gtk-3.0/bookmarks" = {
+      text = ''
+        file:///home/${config.home.username}/Downloads
+        file:///home/${config.home.username}/Documents
+        file:///home/${config.home.username}/Documents/vaults
+        file:///home/${config.home.username}/Repos
+      '';
     };
     "gtk-4.0" = {
       source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/gtk-4.0";
@@ -22,15 +33,15 @@ in
     };
   };
   home.file = {
-    ".themes" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/themes";
-    };
-    ".icons" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/gtk/icons";
-    };
     "Pictures/wallpapers" = {
       source = "${dotfiles}/wallpapers";
       force = true;
+    };
+    "Documents/vaults/personal/.keep" = {
+      text = "";
+    };
+    "Documents/vaults/work/.keep" = {
+      text = "";
     };
   };
 }
