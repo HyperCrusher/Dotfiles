@@ -36,6 +36,17 @@ in
       typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6" 
       typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
       eval "$(oh-my-posh init zsh -c '${zshDir}/omp.json')"
+
+      export OMP_I=0
+      precmd(){
+        if (( OMP_I < 2 )); then
+          (( OMP_I++ ))
+        fi
+      };
+      clear(){
+        command clear
+        OMP_I=0
+      };
     '';
 
     shellAliases = {
@@ -69,8 +80,12 @@ in
       {
         type = "prompt";
         alignment = "left";
-        newline = true;
         segments = [
+          {
+            type = "text";
+            style = "plain";
+            template = "{{ if eq .Env.OMP_I \"2\" }}\n{{ end }}";
+          }
           {
             type = "path";
             style = "plain";
