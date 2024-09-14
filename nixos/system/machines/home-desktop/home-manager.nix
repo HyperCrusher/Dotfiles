@@ -2,6 +2,7 @@
   inputs,
   user,
   pkgs,
+  machine,
   ...
 }:
 {
@@ -14,6 +15,7 @@
         inputs
         user
         pkgs
+        machine
         ;
     };
     useGlobalPkgs = true;
