@@ -55,6 +55,7 @@
         };
       };
       extraConfig = ''
+        xsetroot -cursor_name left_ptr
         # Make an array of displays
         xoutput=''$(xrandr | grep ' connected' | cut -d' ' -f1)
         readarray -t displays <<< "''$xoutput"

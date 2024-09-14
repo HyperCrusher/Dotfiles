@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.xorg.xsetroot}/bin/xsetroot --cursor_name left_ptr
-  '';
   environment = {
     variables = {
       QT_QPA_PLATFORMTHEME = "qt6ct";
