@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.xorg.xsetroot}/bin/xsetroot --cursor_name left_ptr
+  '';
   environment = {
     localBinInPath = true;
     variables = {
