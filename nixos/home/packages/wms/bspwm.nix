@@ -8,7 +8,7 @@
     enable = true;
     keybindings = {
       # Launch Applications
-      "super + Return" = "alacritty";
+      "super + Return" = "kitty";
       "super + @space" = "rofi -show drun";
       "Print" = "flameshot gui -c -s";
       # Restart SXHKD

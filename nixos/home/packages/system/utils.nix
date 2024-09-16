@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    yazi
     kitty
     rofi
-    alacritty # due to vm not supporting kitty
     coursera-dl
     jq
     monolith
