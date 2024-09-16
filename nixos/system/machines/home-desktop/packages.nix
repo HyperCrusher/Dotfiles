@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   programs = {
     npm = {
@@ -29,6 +29,10 @@
 
   services = {
     tumbler.enable = true;
+    jellyfin = {
+      enable = true;
+      user = "${user.name_lower}";
+    };
   };
 
 }
