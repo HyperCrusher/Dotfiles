@@ -42,18 +42,18 @@
       jack.enable = true;
     };
   };
+  environment.variables = {
+    PF_INFO = "ascii title kernel wm editor pkgs memory uptime";
+  };
   environment.systemPackages = with pkgs; [
     bat
     bottom
     btrfs-progs
-    btrfs-snap
-    btrfs-assistant
     curl
     eza
     fd
     fzf
     lemmeknow
-    lxqt.lxqt-policykit
     man
     man-pages
     neovim
