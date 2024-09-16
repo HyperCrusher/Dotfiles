@@ -9,78 +9,86 @@ let
   zshAbsDir = "${config.home.homeDirectory}/${zshDir}";
 in
 {
-  programs.oh-my-posh = {
-    enable = true;
-    package = pkgs.oh-my-posh;
-  };
-
-  programs.zsh = {
-    enable = true;
-    autocd = false;
-
-    dotDir = zshDir;
-
-    history = {
-      size = 10000;
-      path = "${zshAbsDir}/history";
-    };
-
-    antidote = {
+  programs = {
+    oh-my-posh = {
       enable = true;
-      plugins = [
-        "zsh-users/zsh-autosuggestions kind:defer"
-        "zsh-users/zsh-syntax-highlighting kind:defer"
-        "clarketm/zsh-completions kind:defer"
-        "zsh-users/zsh-history-substring-search kind:defer"
-        "ChrisPenner/copy-pasta kind:defer"
-        "mdumitru/fancy-ctrl-z kind:defer"
-        "jeffreytse/zsh-vi-mode kind:defer"
-      ];
+      package = pkgs.oh-my-posh;
     };
 
-    initExtra = ''
-      typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6" 
-      typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
-      eval "$(oh-my-posh init zsh -c '${zshAbsDir}/omp.json')"
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = [ "--cmd cd" ];
+    };
+    zsh = {
+      enable = true;
+      autocd = false;
 
-      export OMP_I=0
-      precmd(){
-        if (( OMP_I < 2 )); then
-          (( OMP_I++ ))
-        fi
+      dotDir = zshDir;
+
+      history = {
+        size = 10000;
+        path = "${zshAbsDir}/history";
       };
-      clear(){
-        command clear
-        OMP_I=0
+
+      antidote = {
+        enable = true;
+        plugins = [
+          "zsh-users/zsh-autosuggestions kind:defer"
+          "zsh-users/zsh-syntax-highlighting kind:defer"
+          "clarketm/zsh-completions kind:defer"
+          "zsh-users/zsh-history-substring-search kind:defer"
+          "ChrisPenner/copy-pasta kind:defer"
+          "mdumitru/fancy-ctrl-z kind:defer"
+          "jeffreytse/zsh-vi-mode kind:defer"
+        ];
       };
-    '';
 
-    shellAliases = {
-      "ls" = "exa";
-      "lsa" = "exa -a";
-      "lt" = "exa --tree --level=2";
+      initExtra = ''
+        typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6" 
+        typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
+        eval "$(oh-my-posh init zsh -c '${zshAbsDir}/omp.json')"
 
-      "grep" = "grep --color=auto";
-      "mkdir" = "mkdir -pv";
+        export OMP_I=0
+        precmd(){
+          if (( OMP_I < 2 )); then
+            (( OMP_I++ ))
+          fi
+        };
+        clear(){
+          command clear
+          OMP_I=0
+        };
+      '';
 
-      "chown" = "chown --preserve-root";
-      "chmod" = "chmod --preserve-root";
-      "chgrp" = "chgrp --preserve-root";
+      shellAliases = {
+        "ls" = "exa";
+        "lsa" = "exa -a";
+        "lt" = "exa --tree --level=2";
 
-      ".." = "cd ../";
-      "." = "cd ~";
+        "grep" = "grep --color=auto";
+        "mkdir" = "mkdir -pv";
 
-      # Nix related things
-      "nixos" = "cd /etc/nixos";
-      "dotfiles" = "cd /etc/nixos/dotfiles";
-      "rebuild" = "sudo nixos-rebuild switch --flake /etc/nixos#${machine}";
-      "update" = "sudo nix flake update /etc/nixos && rebuild";
-      "rollback" = "sudo nixos-rebuild --switch --rollback";
+        "chown" = "chown --preserve-root";
+        "chmod" = "chmod --preserve-root";
+        "chgrp" = "chgrp --preserve-root";
 
-      # lsblk but with sensible outputs
-      "lsblk" = "lsblk --output name,label,size,rota,mountpoints,fstype";
+        ".." = "cd ../";
+        "." = "cd ~";
+
+        # Nix related things
+        "nixos" = "cd /etc/nixos";
+        "dotfiles" = "cd /etc/nixos/dotfiles";
+        "rebuild" = "sudo nixos-rebuild switch --flake /etc/nixos#${machine}";
+        "update" = "sudo nix flake update /etc/nixos && rebuild";
+        "rollback" = "sudo nixos-rebuild --switch --rollback";
+
+        # lsblk but with sensible outputs
+        "lsblk" = "lsblk --output name,label,size,rota,mountpoints,fstype";
+      };
     };
   };
+
   home.file."${zshDir}/omp.json".text = builtins.toJSON {
     "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
     final_space = true;
