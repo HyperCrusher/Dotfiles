@@ -1,6 +1,7 @@
 {
   inputs,
   machine,
+  pkgs,
   ...
 }:
 {
@@ -20,6 +21,10 @@
   };
 
   boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+    kernelParams = [
+      "reboot=acpi"
+    ];
     loader = {
       grub = {
         device = "nodev";
