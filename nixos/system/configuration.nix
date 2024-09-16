@@ -21,12 +21,11 @@
 
   boot = {
     loader = {
-      efi.canTouchEfiVariables = true;
       grub = {
         device = "nodev";
         efiSupport = true;
+        efiInstallAsRemovable = true;
         enable = true;
-        useOSProber = true;
         timeoutStyle = "menu";
       };
     };
