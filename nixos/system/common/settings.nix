@@ -17,6 +17,9 @@
 
   environment = {
     localBinInPath = true;
+    extraInit = ''
+      xset s off -dpms
+    '';
     variables = {
       EDITOR = "nvim";
       _JAVA_AWT_WM_NONREPARENTING = "1";
