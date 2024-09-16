@@ -8,7 +8,7 @@
     ./network.nix
     ./home-manager.nix
     ./packages.nix
-    #    ./video.nix
+    ./video.nix
     ./wm.nix
   ];
 
