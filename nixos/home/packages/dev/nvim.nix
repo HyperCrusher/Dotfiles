@@ -18,12 +18,14 @@
     gnumake
     rustc
     cargo
-    lua
+    nodejs
   ];
   programs = {
     neovim = {
       enable = true;
       package = pkgs.neovim;
+      extraLuaPackages = ps: [ ps.magick ];
+      extraPackages = with pkgs; [ imagemagick ];
       vimAlias = true;
       vimdiffAlias = true;
 
