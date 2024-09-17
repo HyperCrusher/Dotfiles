@@ -18,7 +18,6 @@ in
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = [ "--cmd cd" ];
     };
     zsh = {
       enable = true;
@@ -59,6 +58,38 @@ in
           command clear
           OMP_I=0
         };
+        _post_command(){
+          clear
+          exa
+          echo
+        }
+        function cd(){
+          z "$@" && _post_command
+        }
+        rm() { 
+          command rm -r "$@" && _post_command;
+        }
+        mkdir() { 
+          command mkdir -pv "$@" && _post_command;
+        }
+        touch() { 
+          command touch "$@" && _post_command;
+        }
+        unzip() {
+          local filename=$(basename "$1" .zip)
+          mkdir -p "$filename"
+          command unzip "$1" -d "$filename"
+          _post_command
+        }
+
+        unrar() {
+          local filename=$(basename "$1" .rar)
+          mkdir -p "$filename"
+          command unrar x "$1" "$filename"
+          _post_command
+        }
+        exa
+        echo
       '';
 
       shellAliases = {
@@ -67,8 +98,6 @@ in
         "lt" = "exa --tree --level=2";
 
         "grep" = "grep --color=auto";
-        "mkdir" = "mkdir -pv";
-        "rm" = "rm -r";
 
         "chown" = "chown --preserve-root";
         "chmod" = "chmod --preserve-root";
