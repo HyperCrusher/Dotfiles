@@ -34,7 +34,17 @@
       "compress=zstd:1"
     ];
   };
-
+  fileSystems."/mnt/media" = {
+    device = "/dev/disk/by-uuid/B24EAA544EAA10E1";
+    fsType = "ntfs";
+    options = [
+      "rw"
+      "uid=1000"
+      "gid=100"
+      "dmask=027"
+      "fmask=137"
+    ];
+  };
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/51B4-2002";
     fsType = "vfat";
