@@ -6,6 +6,7 @@
 {
   # Shell, yaml and json tools should always be present
   home.packages = with pkgs; [
+    yazi # needed for in nvim file management
     shellcheck # Shell
     shfmt
     taplo # Toml,yaml,json
