@@ -68,6 +68,7 @@ in
 
         "grep" = "grep --color=auto";
         "mkdir" = "mkdir -pv";
+        "rm" = "rm -r";
 
         "chown" = "chown --preserve-root";
         "chmod" = "chmod --preserve-root";
