@@ -17,7 +17,6 @@
     overlays = [
       inputs.neovim-nightly-overlay.overlays.default
       (import ../overlays/omp.nix)
-      (import ../overlays/coin3d.nix)
     ];
   };
 
